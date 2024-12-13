@@ -1,6 +1,6 @@
 # Data Management Pro
 
-Visit the site here: "https://tryPap.github.io/data-management-pro"
+Visit the site here: "https://tryPap.github.io/data-manangement-pro"
 A simple web application to manage a list of entries with customizable fields. Built with React and includes a feature to print the list of entries.
 
 ## Features
