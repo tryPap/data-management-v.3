@@ -423,7 +423,7 @@ hr {
 
 .instructions {
   top: 20%;
-  right: 15%;
+  right: 19%;
   position: fixed; /* Fixes the modal overlay to the viewport */
   z-index: 9999;
   display: flex; /* Centers the modal content */
