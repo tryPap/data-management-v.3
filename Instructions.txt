@@ -1,0 +1,4 @@
+Add new fields by entering a name in the 
+"New Field" input and clicking "Add Field".
+If your fields are filled, click "Add Data" to add a data entry.
+For sorting, enter the name of the field by which you want to sort the data and click "Sort". Additionally, you can print the student list by clicking the "Print" button.

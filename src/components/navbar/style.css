@@ -1,0 +1,50 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between logo and menu */
+  background-color: #0a0518; /* Primary blue color */
+  padding: 15px;
+  position: sticky; /* For positioning dropdown menu */
+  z-index: 8; /* Ensure navbar is above other elements */
+  font-family: "Stick No Bills", sans-serif;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  border: solid 1px #ccc;
+  }
+  
+  /* Title styles */
+  
+  
+  .headtitle {
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    text-shadow: #211c2fde 5px 5px 6px;
+    text-decoration: none;
+    color: #bd0020;
+    font-size: 36px; /* Matches nav links' font size */
+    transition: color 0.3s ease;
+    margin: 0; /* Ensures perfect alignment */
+    padding: 10px
+  }
+
+
+  
+  
+
+
+  @media (max-width: 768px) {
+    
+    .headtitle {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;   
+     }
+    .navbar {
+      padding: 10px;
+      
+    }
+  }

@@ -1,0 +1,664 @@
+/* Body */
+body {
+  min-width: 280px;
+  margin: 0;
+  background-color: #0a0518;
+  font-family: "Montserrat", serif;
+  font-weight: 400;
+}
+
+/* Container */
+.container {
+  display: flex;
+  margin: 0;
+  flex-direction: row;
+  padding-bottom: 50px;
+}
+
+.sidebar {
+  top: 10%;
+  width: 300px;
+  padding: 10px;
+  background-color: #0a0518;
+  border: solid 1px #ccc;
+  color: #ffffff;
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  /* Fixed width */
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  display: block;
+  color: #ccc;
+  font-size: 1.3rem; /* Matches nav links' font size */
+}
+
+#newfield input,
+.input-p-sort input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+#addfield {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#addfield:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin: 30px 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 10px 10px;
+  border: 1px solid #e43f5a;
+  border-radius: 8px;
+  box-shadow: 0 0px 7px rgba(255, 255, 255, 0.721);
+}
+
+.input-group ul {
+  list-style-type: none;
+  padding-left: 0;
+  /* Optional: to remove the default padding */
+}
+
+.input-group li {
+  padding-top: 10px;
+}
+
+.field-container {
+  display: flex;
+  align-items: center;
+}
+
+.field-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.field-container input:hover {
+  cursor: pointer;
+}
+
+.delete-field-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.delete-field-button:hover {
+  background-color: #ad0000;
+  cursor: pointer;
+}
+
+.input-group button {
+  padding: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addentry {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+#addentry:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  flex: auto;
+}
+
+.button-group button {
+  background-color: #dc3545;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.button-group button:hover {
+  cursor: pointer;
+  background-color: #ad0000;
+}
+
+.sort {
+  background-color: #007bff;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.sort:hover {
+  cursor: pointer;
+  background-color: #0056b3;
+}
+
+.input-p-sort {
+  margin: 0;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.print {
+  margin-bottom: 50px;
+  background-color: #bd0020;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.print:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 320px;
+
+  /* Adjusted for sidebar width */
+}
+
+.main-content h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 17px;
+  color: #ccc;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.studIndex {
+  position: absolute; /* Position it absolutely within the parent */
+  top: 8px; /* Adjust as necessary */
+  left: 8px; /* Adjust as necessary */
+  font-weight: bold; /* Make it bold for emphasis */
+  opacity: 0.4;
+  font-size: 14px;
+}
+.student-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #efefef;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden;
+  max-width: calc(100% - 40px); /* Allow space for padding */
+}
+
+.student-item:hover {
+  transform: scale(1.02);
+  background-color: #ecebeb;
+  cursor: pointer;
+}
+
+.student-info {
+  flex: 2;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: calc(100% - 40px); /* Allow space for padding */
+}
+
+.student-info div {
+  overflow: hidden;
+  text-overflow: ellipsis; /* Use ellipsis for overflowed text */
+  max-width: 100%;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  padding: 0.1rem;
+  color: black;
+}
+
+.student-info div input {
+  border: none;
+  border-radius: 8px;
+  margin-left: 0.4rem;
+  padding: 0.2rem;
+  font-size: 17px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  resize: none;
+}
+
+.student-info div span {
+  margin-left: 0.3rem;
+  text-transform: capitalize;
+}
+
+.btnEditDelete {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.delete-button {
+  width: 100%;
+  margin-top: 0.2rem;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #f11111;
+  cursor: pointer;
+}
+
+.edit-button {
+  width: 100%;
+  margin: 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  background-color: #0056b3;
+}
+.save-button {
+  width: 100%;
+  margin: 0.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+.cancel-button {
+  width: 100%;
+  margin: 0.2rem;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #f11111;
+  cursor: pointer;
+}
+.reverseSortButton {
+  position: fixed;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  bottom: 10px;
+  right: 10px;
+  width: 100px;
+}
+
+.reverseSortButton:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+.printExtraButton {
+  background-color: #bd0020;
+  color: white;
+  position: fixed;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  bottom: 10px;
+  right: 115px;
+  width: 100px;
+}
+
+.printExtraButton:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.export-button {
+  background-color: #28a745;
+  color: white;
+  position: fixed;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 10px;
+  bottom: 0px;
+  right: 210px;
+  width: 100px;
+}
+
+.export-button:hover {
+  background-color: #218838;
+  cursor: pointer;
+}
+
+#instructions-button {
+  background-color: #2200ff;
+  color: white;
+  position: fixed;
+  margin-top: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 10px;
+  bottom: 0px;
+  right: 315px;
+}
+
+#instructions-button:hover {
+  background-color: #1e02d1;
+  cursor: pointer;
+}
+
+.instructions {
+  top: 20%;
+  right: 10%;
+  position: fixed; /* Fixes the modal overlay to the viewport */
+  z-index: 9999;
+  display: flex; /* Centers the modal content */
+  justify-content: center;
+  align-items: center;  
+  margin: 0;
+  padding: 0;
+}
+
+/* Modal content box */
+.instructions-content{
+  background-color:#0a0518; /* Dark background for the modal */
+  color: #878e99; /* Light text color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 0px 30px 20px 30px; /* Padding inside the modal */
+  width: 100%; /* Responsive width */
+  max-width: 700px; /* Limit max-width to avoid excessively wide modals */
+  max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
+  border: solid #ccc 1px; /* Subtle border */
+  box-shadow: 4px 4px 10px rgba(29, 29, 29, 0.544); /* Shadow for depth */
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
+  position: relative; /* Ensures the close button is positioned correctly */
+  text-align: center; /* Centers the text */
+  font-family:'Times New Roman', Times, serif;
+}
+
+.instructions p {
+  padding: 30px;
+  text-align:left;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.instructions h3 {
+  text-align: center;
+  color: #890e22;
+  font-size: 36px;
+  line-height: 34px;
+}
+
+#closeModal {
+  position: absolute; /* Position it relative to the modal-content */
+  bottom: 10px; /* Position from the top of the modal-content */
+  right: 10px; /* Position from the right of the modal-content */
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #bd0020;
+  padding: 8px;
+  z-index: 1001; /* Ensure it's above all content */
+}
+
+.prototypes-btn {
+  background-color: #111111;
+  color: #bd0020;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px;
+  border: solid 1px;
+  box-shadow: #300f0f 2px 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.prototypes-btn:hover {
+  opacity: 0.7;
+}
+/* Footer */
+footer {
+  display: flex;
+  background-color: #0a0518;
+  padding: 5px;
+  justify-content: center;
+  color: #f7f7f7;
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  margin-top: 0.1rem;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container,
+  .sidebar,
+  .main-content,
+  footer {
+    display: none;
+  }
+
+  .print-container {
+    display: block;
+    width: 100%;
+  }
+
+  .print-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 35px;
+  }
+
+  .print-student {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  .print-student:last-child {
+    border-bottom: none;
+  }
+
+  .print-student div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .print-student div span.label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .print-student div span.value {
+    flex: 1;
+  }
+
+  #printDate {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+  }
+
+  /* Optional: remove margin and padding from all elements to ensure consistent layout */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure all elements are printed in high-quality */
+  html {
+    -webkit-print-color-adjust: exact;
+    /* For WebKit browsers */
+    print-color-adjust: exact;
+    /* Standard property for other browsers */
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .sidebar {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+
+  .input-group {
+    margin-top: 30px;
+  }
+
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .instructions p {
+    padding-bottom: 100px;
+    top: 25%;
+  }
+  footer {
+    left: 0;
+  }
+
+  .instructions {
+    right: 2%;
+    left: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  footer {
+    left: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .sidebar {
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    padding: 5px 5px;
+  }
+
+  footer {
+    left: 0;
+  }
+}
+
+/* Focus Styles for Accessibility */
+button:focus,
+input:focus {
+  outline: 2px solid #0056b3;
+}

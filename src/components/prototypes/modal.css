@@ -1,0 +1,124 @@
+/* Modal overlay to hide the rest of the page */
+.modal {
+  position: fixed; /* Fixes the modal overlay to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 9999; /* Ensures the modal is above all content */
+  display: flex; /* Centers the modal content */
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Enables scrolling if the modal content is too large */
+  
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #1a2954; /* Dark background for the modal */
+  color: #ccc; /* Light text color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 25px; /* Padding inside the modal */
+  width: 90%; /* Responsive width */
+  max-width: 1200px; /* Limit max-width to avoid excessively wide modals */
+  max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
+  border: solid #ccc 1px; /* Subtle border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Shadow for depth */
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
+  position: relative; /* Ensures the close button is positioned correctly */
+  text-align: center; /* Centers the text */
+  overflow-y: auto; /* If the content is too long, allow scrolling */
+  padding-bottom: 50px;
+}
+
+.prototype-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+/* Header styling */
+.modal-content h2 {
+  margin: 0 0 20px; /* Spacing below the header */
+  font-size: 1.5rem; /* Slightly larger font size */
+  color: #fff; /* White text for better contrast */
+}
+/* Button inside the modal */
+.prototype-title {
+  color: white;
+  padding: 10px 20px;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+
+/* Close button */
+.close {
+  position: absolute; /* Position it relative to the modal-content */
+  bottom: 10; /* Position from the top of the modal-content */
+  right: 10px; /* Position from the right of the modal-content */
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #bd0020;
+  padding: 8px;
+  z-index: 1001; /* Ensure it's above all content */
+}
+
+.close:hover {
+opacity: 0.7;
+
+}
+.prototype-wraper {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.prototype-wraper:hover {
+  opacity: 0.6;
+}
+/* Prototype list styling */
+.modal-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.modal-content ul li {
+  margin: 8px;
+}
+
+.modal-content ul ul {
+  margin: 10px 20px;
+  list-style-type: disc;
+  text-align: center; /* Align keys to the left */
+}
+
+.modal-content ul ul li {
+  font-style: italic;
+  color: #555;
+}
+
+/* Fade-in animation for the modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Starts above its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Ends at its final position */
+  }
+}
+  
