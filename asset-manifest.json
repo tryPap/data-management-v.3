@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/data-management-pro/static/css/main.7be80c63.css",
-    "main.js": "/data-management-pro/static/js/main.ba9cec97.js",
+    "main.css": "/data-management-pro/static/css/main.aeef9948.css",
+    "main.js": "/data-management-pro/static/js/main.3a743594.js",
     "index.html": "/data-management-pro/index.html",
-    "main.7be80c63.css.map": "/data-management-pro/static/css/main.7be80c63.css.map",
-    "main.ba9cec97.js.map": "/data-management-pro/static/js/main.ba9cec97.js.map"
+    "main.aeef9948.css.map": "/data-management-pro/static/css/main.aeef9948.css.map",
+    "main.3a743594.js.map": "/data-management-pro/static/js/main.3a743594.js.map"
   },
   "entrypoints": [
-    "static/css/main.7be80c63.css",
-    "static/js/main.ba9cec97.js"
+    "static/css/main.aeef9948.css",
+    "static/js/main.3a743594.js"
   ]
 }
