@@ -21,10 +21,11 @@ body {
   background-color: #0a0518;
   border: solid 1px #878e99;
   color: #ffffff;
-  position: fixed;
+  position: absolute;
   text-align: center;
   /* Fixed width */
   overflow-y: auto;
+  
 }
 
 .sidebar h2 {
@@ -375,9 +376,6 @@ hr {
   padding: 0;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  bottom: 0%;
-  left: 22%;
 }
 
 .printExtraButton {
@@ -424,15 +422,13 @@ hr {
 }
 
 .instructions {
-  top: 20%;
-  right: 15%;
-  position: fixed; /* Fixes the modal overlay to the viewport */
   z-index: 9999;
   display: flex; /* Centers the modal content */
   justify-content: center;
   align-items: center;  
   margin: 0;
   padding: 0;
+  position: absolute;
 }
 
 /* Modal content box */
@@ -441,9 +437,8 @@ hr {
   color: #878e99; /* Light text color */
   border-radius: 10px; /* Rounded corners */
   padding: 0 30px 0 30px; /* Padding inside the modal */
-  width: 100%; /* Responsive width */
+  width: 80%; /* Responsive width */
   height: 60vh;
-  max-width: 700px; /* Limit max-width to avoid excessively wide modals */
   max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
   border: solid #ccc 1px; /* Subtle border */
   box-shadow: 4px 4px 10px rgba(29, 29, 29, 0.544); /* Shadow for depth */
@@ -484,10 +479,9 @@ hr {
 .prototypes-btn {
   background-color: #111111;
   color: #bd0020;
-  margin-top: 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  padding: 15px;
+  padding: 10px;
   border: solid 1px;
   box-shadow: #300f0f 2px 2px 6px;
   border-radius: 4px;
@@ -626,12 +620,12 @@ footer {
   }
 
   .instructions {
-    right: 2%;
-    left: 2%;
+    margin-right: 2px;
+    margin-left: 2px;
   }
   .instructions-content {
-    height: 58vh;
     padding: 0 15px 0 15px;
+    width: 90%;
   }
 
   .reverseSortButton {

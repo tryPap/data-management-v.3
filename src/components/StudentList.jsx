@@ -262,6 +262,25 @@ const StudentList = () => {
 
   return (
     <div className="container">
+      <div className="instructions">
+        {showInstructions && (
+          <div className="instructions-content">
+            <p>
+              <h3>User Instructions</h3>
+              Enter a name for your field. Click "Add Field" to create the new
+              field. Rearrangeable fields by drag and drop. Give values you
+              want. Click "Add Data" to save the data. Sort the data, by typing
+              the name of the field you'd like to sort by and click "Sort".
+              Clicking "Reverse Sort" to reverse the sort order. Click "Print"
+              to print the current list. Click "Excel" to save the data localy
+              in xlsx file.
+            </p>
+            <span id="closeModal" onClick={closeModal}>
+              Close
+            </span>
+          </div>
+        )}
+      </div>
       <div className="sidebar">
         <hr />
         <h2>Make The Fields You Need</h2>
@@ -341,52 +360,7 @@ const StudentList = () => {
         <button className="prototypes-btn" onClick={handlePrototypes}>
           Prototypes
         </button>
-      </div>
-      <div>
-        <div>
-          {showModal && (
-            <PrototypesModal
-              prototypes={prototypes}
-              onSelectPrototype={handleSelectPrototype}
-              onClose={handlePrototypes}
-            />
-          )}
-        </div>
-      </div>
-      <div className="instructions">
-        {showInstructions && (
-          <div className="instructions-content">
-            <p>
-              <h3>User Instructions</h3>
-              Enter a name for your field. Click "Add Field" to create the new
-              field. Rearrangeable fields by drag and drop. Give values you
-              want. Click "Add Data" to save the data. Sort the data, by typing
-              the name of the field you'd like to sort by and click "Sort".
-              Clicking "Reverse Sort" to reverse the sort order. Click "Print"
-              to print the current list. Click "Excel" to save the data localy
-              in xlsx file.
-            </p>
-            <span id="closeModal" onClick={closeModal}>
-              Close
-            </span>
-          </div>
-        )}
-      </div>
-      <div className="main-content">
-        <h1>View Your Data!</h1>
-        <div className="student-list">
-          {students.map((student, index) => (
-            <Student
-              key={student.id}
-              student={student}
-              index={index}
-              deleteStudent={deleteStudent}
-              updateStudent={updateStudent}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="bottom-buttons">
+        <div className="bottom-buttons">
         <button
           onClick={() => exportToExcel(students)}
           className="export-button"
@@ -403,6 +377,35 @@ const StudentList = () => {
           content={() => printComponentRef.current}
         />
       </div>
+        
+      </div>
+      <div>
+        <div>
+          {showModal && (
+            <PrototypesModal
+              prototypes={prototypes}
+              onSelectPrototype={handleSelectPrototype}
+              onClose={handlePrototypes}
+            />
+          )}
+        </div>
+      </div>
+      <div className="main-content">
+        <h1>View Your Data!</h1>
+        <div className="student-list">
+          {students.map((student, index) => (
+            <Student
+              key={student.id}
+              student={student}
+              index={index}
+              deleteStudent={deleteStudent}
+              updateStudent={updateStudent}
+            />
+          ))}
+        </div>
+        
+      </div>
+      
 
       <div style={{ display: "none" }}>
         <PrintComponent ref={printComponentRef} students={students} />
