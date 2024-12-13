@@ -16,15 +16,13 @@ body {
 }
 
 .sidebar {
-  top: 10%;
   width: 300px;
   padding: 10px;
   background-color: #0a0518;
-  border: solid 1px #ccc;
+  border: solid 1px #878e99;
   color: #ffffff;
   position: fixed;
   text-align: center;
-  bottom: 0;
   /* Fixed width */
   overflow-y: auto;
 }
@@ -35,15 +33,7 @@ body {
   font-size: 1.3rem; /* Matches nav links' font size */
 }
 
-#newfield input,
-.input-p-sort input {
-  flex: 1;
-  padding: 10px;
-  margin-right: 0.5rem;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-}
+
 
 #addfield {
   background-color: #007bff;
@@ -170,10 +160,39 @@ hr {
   background-color: #0056b3;
 }
 
+#newfield input,
+.input-p-sort input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+
 .input-p-sort {
-  margin: 0;
-  text-align: center;
-  padding-bottom: 20px;
+  width: 100%;
+  padding-bottom: 10px;
+}
+.sort-input {
+  width: 35%;
+}
+
+
+.reverseSortButton {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 8px;
+
+}
+
+.reverseSortButton:hover {
+  background-color: #0056b3;
+  cursor: pointer;
 }
 
 .print {
@@ -348,35 +367,26 @@ hr {
   background-color: #f11111;
   cursor: pointer;
 }
-.reverseSortButton {
-  position: fixed;
-  margin-top: 5px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  bottom: 10px;
-  right: 10px;
-  width: 100px;
-}
 
-.reverseSortButton:hover {
-  background-color: #0056b3;
-  cursor: pointer;
+
+.bottom-buttons {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0%;
+  left: 22%;
 }
 
 .printExtraButton {
   background-color: #bd0020;
   color: white;
-  position: fixed;
-  margin-top: 5px;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  bottom: 10px;
-  right: 115px;
-  width: 100px;
+  width: 100%;
 }
 
 .printExtraButton:hover {
@@ -387,15 +397,10 @@ hr {
 .export-button {
   background-color: #28a745;
   color: white;
-  position: fixed;
-  margin-top: 5px;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  margin: 10px;
-  bottom: 0px;
-  right: 210px;
-  width: 100px;
+  width: 100%;
 }
 
 .export-button:hover {
@@ -406,14 +411,11 @@ hr {
 #instructions-button {
   background-color: #2200ff;
   color: white;
-  position: fixed;
-  margin-top: 5px;
   padding: 10px;
   border: none;
   border-radius: 4px;
+  width: 100%;
   margin: 10px;
-  bottom: 0px;
-  right: 315px;
 }
 
 #instructions-button:hover {
@@ -423,7 +425,7 @@ hr {
 
 .instructions {
   top: 20%;
-  right: 19%;
+  right: 15%;
   position: fixed; /* Fixes the modal overlay to the viewport */
   z-index: 9999;
   display: flex; /* Centers the modal content */
@@ -438,8 +440,9 @@ hr {
   background-color:#0a0518; /* Dark background for the modal */
   color: #878e99; /* Light text color */
   border-radius: 10px; /* Rounded corners */
-  padding: 0px 30px 20px 30px; /* Padding inside the modal */
+  padding: 0 30px 0 30px; /* Padding inside the modal */
   width: 100%; /* Responsive width */
+  height: 60vh;
   max-width: 700px; /* Limit max-width to avoid excessively wide modals */
   max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
   border: solid #ccc 1px; /* Subtle border */
@@ -494,9 +497,12 @@ hr {
 .prototypes-btn:hover {
   opacity: 0.7;
 }
+
+
 /* Footer */
 footer {
   display: flex;
+  flex-direction: row;
   background-color: #0a0518;
   padding: 5px;
   justify-content: center;
@@ -623,6 +629,14 @@ footer {
     right: 2%;
     left: 2%;
   }
+  .instructions-content {
+    height: 58vh;
+    padding: 0 15px 0 15px;
+  }
+
+  .reverseSortButton {
+    margin: 8px;
+}
 }
 
 @media (max-width: 480px) {

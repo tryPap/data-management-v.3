@@ -20,7 +20,7 @@
   color: #ccc; /* Light text color */
   border-radius: 10px; /* Rounded corners */
   padding: 25px; /* Padding inside the modal */
-  width: 90%; /* Responsive width */
+  width: 100%; /* Responsive width */
   max-width: 1200px; /* Limit max-width to avoid excessively wide modals */
   max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
   border: solid #ccc 1px; /* Subtle border */
@@ -42,7 +42,7 @@
 
 /* Header styling */
 .modal-content h2 {
-  margin: 0 0 20px; /* Spacing below the header */
+  margin: 20px 0 20px; /* Spacing below the header */
   font-size: 1.5rem; /* Slightly larger font size */
   color: #fff; /* White text for better contrast */
 }
@@ -121,4 +121,22 @@ opacity: 0.7;
     transform: translateY(0); /* Ends at its final position */
   }
 }
+@media (max-width: 768px) {
+  .modal-content{
+    padding: 10px;
+    width: 80%;
+  }
+
+  .prototype-grid {
+    gap: 10px;
+  }
+
+  .close {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+  }
+}
+  
+
   

@@ -324,6 +324,7 @@ const StudentList = () => {
         <div className="input-p-sort">
           <p>Sort Your Data</p>
           <input
+          className="sort-input"
             type="text"
             placeholder="Sort Option"
             value={sortCriteria}
@@ -332,6 +333,9 @@ const StudentList = () => {
           />
           <button className="sort" onClick={() => sortStudents(sortCriteria)}>
             Sort
+          </button>
+          <button className="reverseSortButton" onClick={reverseSort}>
+            Reverse Sort
           </button>
         </div>
         <button className="prototypes-btn" onClick={handlePrototypes}>
@@ -349,6 +353,25 @@ const StudentList = () => {
           )}
         </div>
       </div>
+      <div className="instructions">
+        {showInstructions && (
+          <div className="instructions-content">
+            <p>
+              <h3>User Instructions</h3>
+              Enter a name for your field. Click "Add Field" to create the new
+              field. Rearrangeable fields by drag and drop. Give values you
+              want. Click "Add Data" to save the data. Sort the data, by typing
+              the name of the field you'd like to sort by and click "Sort".
+              Clicking "Reverse Sort" to reverse the sort order. Click "Print"
+              to print the current list. Click "Excel" to save the data localy
+              in xlsx file.
+            </p>
+            <span id="closeModal" onClick={closeModal}>
+              Close
+            </span>
+          </div>
+        )}
+      </div>
       <div className="main-content">
         <h1>View Your Data!</h1>
         <div className="student-list">
@@ -362,37 +385,19 @@ const StudentList = () => {
             />
           ))}
         </div>
+      </div>
+      <div className="bottom-buttons">
         <button
           onClick={() => exportToExcel(students)}
           className="export-button"
         >
           Excel
         </button>
-        <button className="reverseSortButton" onClick={reverseSort}>
-          Reverse Sort
-        </button>
+
         <button id="instructions-button" onClick={toggleInstructions}>
           Instructions
         </button>
-        <div className="instructions">
-          {showInstructions && (
-            <div className="instructions-content">
-              <p>
-                <h3>User Instructions</h3>
-                Enter a name for your field. Click "Add Field" to create the new
-                field. Rearrangeable fields by drag and drop. Give values you
-                want. Click "Add Data" to save the data. Sort the data, by
-                typing the name of the field you'd like to sort by and click
-                "Sort". Clicking "Reverse Sort" to reverse the sort order. Click
-                "Print" to print the current list. Click "Excel" to save the
-                data localy in xlsx file.
-              </p>
-              <span id="closeModal" onClick={closeModal}>
-                Close
-              </span>
-            </div>
-          )}
-        </div>
+
         <ReactToPrint
           trigger={() => <button className="printExtraButton">Print</button>}
           content={() => printComponentRef.current}
