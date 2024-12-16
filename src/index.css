@@ -23,8 +23,12 @@ body {
   color: #ffffff;
   position: absolute;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   /* Fixed width */
   overflow-y: auto;
+  margin-top: 20px;
+
   
 }
 
@@ -37,10 +41,11 @@ body {
 
 
 #addfield {
-  background-color: #007bff;
+  background-color:#005d1c;
   color: white;
   border: none;
-  border-radius: 4px;
+  font-weight: 600;
+  border-radius: 8px;
   padding: 10px;
 }
 
@@ -53,16 +58,16 @@ hr {
   border: 0;
   height: 1px;
   background-color: #ccc;
-  margin: 30px 10px;
+  margin: 10px 10px 0 10px;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  padding: 0px 10px 10px 10px;
-  border: 1px solid #e43f5a;
+  padding: 0px 15px 10px 15px;
   border-radius: 8px;
   box-shadow: 0 0px 7px rgba(255, 255, 255, 0.721);
+  margin-top: 20px;
 }
 
 .input-group ul {
@@ -84,7 +89,7 @@ hr {
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
 }
 
@@ -96,9 +101,11 @@ hr {
   background-color: #dc3545;
   color: white;
   border: none;
-  border-radius: 4px;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 0px 7px 0 7px;
+  font-size: 24px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .delete-field-button:hover {
@@ -106,20 +113,13 @@ hr {
   cursor: pointer;
 }
 
-.input-group button {
-  padding: 10px;
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 #addentry {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 #addentry:hover {
@@ -129,8 +129,9 @@ hr {
 
 .button-group {
   display: flex;
-  flex-direction: column;
-  margin-top: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin-top: 30px; */
   flex: auto;
 }
 
@@ -139,7 +140,7 @@ hr {
   padding: 10px;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-top: 10px;
 }
 
@@ -153,7 +154,7 @@ hr {
   padding: 10px;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .sort:hover {
@@ -167,14 +168,16 @@ hr {
   padding: 10px;
   margin-right: 0.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
 }
+
 
 
 .input-p-sort {
   width: 100%;
   padding-bottom: 10px;
+  
 }
 .sort-input {
   width: 35%;
@@ -186,7 +189,7 @@ hr {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-left: 8px;
 
 }
@@ -228,8 +231,9 @@ hr {
 }
 
 .student-list {
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 10px;
 }
 
@@ -257,7 +261,8 @@ hr {
 }
 
 .student-item:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   background-color: #ecebeb;
   cursor: pointer;
 }
@@ -313,7 +318,7 @@ hr {
   background-color: #ff4d4d;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
   transition: background-color 0.2s;
 }
@@ -329,7 +334,7 @@ hr {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
   transition: background-color 0.2s;
 }
@@ -344,7 +349,7 @@ hr {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
   transition: background-color 0.2s;
 }
@@ -359,7 +364,7 @@ hr {
   background-color: #ff4d4d;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
   transition: background-color 0.2s;
 }
@@ -428,28 +433,27 @@ hr {
   align-items: center;  
   margin: 0;
   padding: 0;
-  position: absolute;
 }
 
 /* Modal content box */
 .instructions-content{
   background-color:#0a0518; /* Dark background for the modal */
   color: #878e99; /* Light text color */
-  border-radius: 10px; /* Rounded corners */
-  padding: 0 30px 0 30px; /* Padding inside the modal */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px 40px 40px 40px; /* Padding inside the modal */
   width: 80%; /* Responsive width */
-  height: 60vh;
   max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
-  border: solid #ccc 1px; /* Subtle border */
+  border: solid #878e99 1px; /* Subtle border */
   box-shadow: 4px 4px 10px rgba(29, 29, 29, 0.544); /* Shadow for depth */
   animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
   position: relative; /* Ensures the close button is positioned correctly */
   text-align: center; /* Centers the text */
   font-family:'Times New Roman', Times, serif;
+  overflow-y: auto;
 }
 
 .instructions p {
-  padding: 30px;
+  padding: 0 20px 10px 20px;
   text-align:left;
   font-size: 18px;
   line-height: 27px;
@@ -486,6 +490,10 @@ hr {
   box-shadow: #300f0f 2px 2px 6px;
   border-radius: 4px;
   cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px
 }
 
 .prototypes-btn:hover {
@@ -606,7 +614,9 @@ footer {
     flex-direction: column;
     height: auto;
   }
-
+  .student-list {
+    margin-top: 10px; 
+  }
   .main-content {
     margin-left: 0;
     padding: 20px;
@@ -619,12 +629,8 @@ footer {
     left: 0;
   }
 
-  .instructions {
-    margin-right: 2px;
-    margin-left: 2px;
-  }
   .instructions-content {
-    padding: 0 15px 0 15px;
+    padding: 0 15px 0px 15px;
     width: 90%;
   }
 
@@ -643,7 +649,9 @@ footer {
   .main-content {
     padding: 15px;
   }
-
+  .instructions-content {
+    padding: 0 15px 0 15px;
+  }
   footer {
     left: 0;
   }

@@ -3,8 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Space between logo and menu */
-  background-color: #0a0518; /* Primary blue color */
-  padding: 15px;
+  background: linear-gradient(135deg, #0e61ba, #00366f);  padding: 15px;
   position: sticky; /* For positioning dropdown menu */
   z-index: 8; /* Ensure navbar is above other elements */
   font-family: "Stick No Bills", sans-serif;
@@ -12,7 +11,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  border: solid 1px #878e99;
   }
   
   /* Title styles */
@@ -20,8 +18,8 @@
   
   .headtitle {
     font-family: "Montserrat", serif;
-    font-weight: 400;
-    text-shadow: #211c2fde 5px 5px 6px;
+    font-weight: 600;
+    text-shadow: #211c2fde 2px 2px 6px;
     text-decoration: none;
     color: #bd0020;
     font-size: 36px; /* Matches nav links' font size */

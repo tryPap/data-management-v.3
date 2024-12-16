@@ -262,29 +262,8 @@ const StudentList = () => {
 
   return (
     <div className="container">
-      <div className="instructions">
-        {showInstructions && (
-          <div className="instructions-content">
-            <p>
-              <h3>User Instructions</h3>
-              Enter a name for your field. Click "Add Field" to create the new
-              field. Rearrangeable fields by drag and drop. Give values you
-              want. Click "Add Data" to save the data. Sort the data, by typing
-              the name of the field you'd like to sort by and click "Sort".
-              Clicking "Reverse Sort" to reverse the sort order. Click "Print"
-              to print the current list. Click "Excel" to save the data localy
-              in xlsx file.
-            </p>
-            <span id="closeModal" onClick={closeModal}>
-              Close
-            </span>
-          </div>
-        )}
-      </div>
       <div className="sidebar">
-        <hr />
         <h2>Make The Fields You Need</h2>
-
         <div id="newfield">
           <input
             type="text"
@@ -294,10 +273,9 @@ const StudentList = () => {
             onKeyPress={handleNewFieldKeyPress}
           />
           <button id="addfield" onClick={addField}>
-            Add Field
+            Make
           </button>
         </div>
-        <hr />
         <div className="input-group">
           <ul>
             {fields.map((field, index) => (
@@ -322,28 +300,30 @@ const StudentList = () => {
                     className="delete-field-button"
                     onClick={() => deleteField(index)}
                   >
-                    Delete
+                    &times;
                   </button>
                 </div>
               </li>
             ))}
           </ul>
-        </div>
-        <div className="button-group">
           <button id="addentry" onClick={addStudent}>
             Add Data
           </button>
-          <button id="deteledata" onClick={deleteAllStudents}>
-            Delete All Data
-          </button>
-          <button id="deletefields" onClick={deleteAllFields}>
-            Delete All Fields
-          </button>
+          <hr />
+          <div className="button-group">
+            <button id="deteledata" onClick={deleteAllStudents}>
+              Delete Data
+            </button>
+            <button id="deletefields" onClick={deleteAllFields}>
+              Delete Fields
+            </button>
+          </div>
         </div>
+
         <div className="input-p-sort">
           <p>Sort Your Data</p>
           <input
-          className="sort-input"
+            className="sort-input"
             type="text"
             placeholder="Sort Option"
             value={sortCriteria}
@@ -357,27 +337,24 @@ const StudentList = () => {
             Reverse Sort
           </button>
         </div>
-        <button className="prototypes-btn" onClick={handlePrototypes}>
-          Prototypes
-        </button>
+
         <div className="bottom-buttons">
-        <button
-          onClick={() => exportToExcel(students)}
-          className="export-button"
-        >
-          Excel
-        </button>
+          <button
+            onClick={() => exportToExcel(students)}
+            className="export-button"
+          >
+            Excel
+          </button>
 
-        <button id="instructions-button" onClick={toggleInstructions}>
-          Instructions
-        </button>
+          <button id="instructions-button" onClick={toggleInstructions}>
+            Instructions
+          </button>
 
-        <ReactToPrint
-          trigger={() => <button className="printExtraButton">Print</button>}
-          content={() => printComponentRef.current}
-        />
-      </div>
-        
+          <ReactToPrint
+            trigger={() => <button className="printExtraButton">Print</button>}
+            content={() => printComponentRef.current}
+          />
+        </div>
       </div>
       <div>
         <div>
@@ -391,7 +368,26 @@ const StudentList = () => {
         </div>
       </div>
       <div className="main-content">
-        <h1>View Your Data!</h1>
+        <div className="instructions">
+          {showInstructions && (
+            <div className="instructions-content">
+              <p>
+                <h3>User Instructions</h3>
+                Enter a name for your field. Click "Add Field" to create the new
+                field. Rearrangeable fields by drag and drop. Give values you
+                want. Click "Add Data" to save the data. Sort the data, by
+                typing the name of the field you'd like to sort by and click
+                "Sort". Clicking "Reverse Sort" to reverse the sort order. Click
+                "Print" to print the current list. Click "Excel" to save the
+                data localy in xlsx file.
+              </p>
+              <span id="closeModal" onClick={closeModal}>
+                Close
+              </span>
+            </div>
+          )}
+        </div>
+        {/* <h1>View Your Data!</h1> */}
         <div className="student-list">
           {students.map((student, index) => (
             <Student
@@ -403,9 +399,10 @@ const StudentList = () => {
             />
           ))}
         </div>
-        
+        <button className="prototypes-btn" onClick={handlePrototypes}>
+          Prototypes
+        </button>
       </div>
-      
 
       <div style={{ display: "none" }}>
         <PrintComponent ref={printComponentRef} students={students} />
