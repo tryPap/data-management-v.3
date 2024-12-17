@@ -306,11 +306,12 @@ const StudentList = () => {
               </li>
             ))}
           </ul>
-          <button id="addentry" onClick={addStudent}>
-            Add Data
-          </button>
+
           <hr />
           <div className="button-group">
+            <button id="addentry" onClick={addStudent}>
+              Add Data
+            </button>
             <button id="deteledata" onClick={deleteAllStudents}>
               Delete Data
             </button>
@@ -319,7 +320,6 @@ const StudentList = () => {
             </button>
           </div>
         </div>
-
         <div className="input-p-sort">
           <p>Sort Your Data</p>
           <input
@@ -337,19 +337,13 @@ const StudentList = () => {
             Reverse Sort
           </button>
         </div>
-
         <div className="bottom-buttons">
           <button
             onClick={() => exportToExcel(students)}
             className="export-button"
           >
             Excel
-          </button>
-
-          <button id="instructions-button" onClick={toggleInstructions}>
-            Instructions
-          </button>
-
+          </button>        
           <ReactToPrint
             trigger={() => <button className="printExtraButton">Print</button>}
             content={() => printComponentRef.current}
@@ -399,6 +393,9 @@ const StudentList = () => {
             />
           ))}
         </div>
+        <button id="instructions-button" onClick={toggleInstructions}>
+            Instructions
+          </button>
         <button className="prototypes-btn" onClick={handlePrototypes}>
           Prototypes
         </button>

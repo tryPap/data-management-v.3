@@ -11,7 +11,6 @@
   justify-content: center;
   align-items: center;
   overflow: auto; /* Enables scrolling if the modal content is too large */
-  
 }
 
 /* Modal content box */
@@ -39,7 +38,6 @@
   margin-top: 20px;
 }
 
-
 /* Header styling */
 .modal-content h2 {
   margin: 20px 0 20px; /* Spacing below the header */
@@ -55,12 +53,9 @@
   font-size: 1rem;
 }
 
-
-
 /* Close button */
 .close {
   position: absolute; /* Position it relative to the modal-content */
-  bottom: 10; /* Position from the top of the modal-content */
   right: 10px; /* Position from the right of the modal-content */
   border: none;
   border-radius: 4px;
@@ -73,8 +68,8 @@
 }
 
 .close:hover {
-opacity: 0.7;
-
+  opacity: 0.7;
+  transition: 0.3s;
 }
 .prototype-wraper {
   display: flex;
@@ -122,7 +117,7 @@ opacity: 0.7;
   }
 }
 @media (max-width: 768px) {
-  .modal-content{
+  .modal-content {
     padding: 10px;
     width: 80%;
   }
@@ -137,6 +132,3 @@ opacity: 0.7;
     right: 10%;
   }
 }
-  
-
-  
