@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 
    ```sh
    git clone https://github.com/tryPap/data-management-pro.git
-   cd data_as_list
+   cd data-management-pro
    npm start
 
 Runs the app in the development mode.\
