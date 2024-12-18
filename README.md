@@ -1,6 +1,6 @@
-# Data Management Pro
+# Data Management v.3
 
-Visit the site here: "https://trypap.github.io/data-management-v3/"
+Visit the site here: "https://trypap.github.io/data-management-v.3/"
 A simple web application to manage a list of entries with customizable fields. Built with React and includes a feature to print the list of entries.
 
 ## Features
@@ -19,7 +19,7 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/tryPap/data-management-v3.git
+   git clone https://github.com/tryPap/data-management-v.3.git
    cd data-management-v3
    npm start
 
