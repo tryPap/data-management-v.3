@@ -3,9 +3,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Space between logo and menu */
-  background: linear-gradient(135deg, #0e61ba, #00366f);  padding: 15px;
+  background: #3B71CA;
+  padding: 12px;
   position: sticky; /* For positioning dropdown menu */
-  z-index: 8; /* Ensure navbar is above other elements */
+  z-index: 1000; /* Ensure navbar is above other elements */
   font-family: "Stick No Bills", sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -18,19 +19,14 @@
   
   .headtitle {
     font-family: "Montserrat", serif;
-    font-weight: 600;
-    text-shadow: #211c2fde 2px 2px 6px;
+    font-weight: 700;
     text-decoration: none;
-    color: #bd0020;
-    font-size: 36px; /* Matches nav links' font size */
+    color: #d0dbee;
+    font-size: 24px; /* Matches nav links' font size */
     transition: color 0.3s ease;
     margin: 0; /* Ensures perfect alignment */
     padding: 10px
   }
-
-
-  
-  
 
 
   @media (max-width: 768px) {

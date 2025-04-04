@@ -2,9 +2,11 @@
 body {
   min-width: 280px;
   margin: 0;
+  padding: 0;
   background-color: #0a0518;
   font-family: "Montserrat", serif;
   font-weight: 400;
+  overflow: hidden;
 }
 
 /* Container */
@@ -13,11 +15,13 @@ body {
   margin: 0;
   flex-direction: row;
   padding-bottom: 50px;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent container from scrolling */
+
 }
 
 .sidebar {
-  width: 300px;
-  padding: 10px;
+  padding: 20px;
   background-color: #0a0518;
   border: solid 1px #878e99;
   color: #ffffff;
@@ -25,16 +29,14 @@ body {
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  /* Fixed width */
   overflow-y: auto;
   margin-top: 20px;
-
-  
+  height: calc(100vh - 150px);  
 }
 
 .sidebar h2 {
   display: block;
-  color: #ccc;
+  color: #00de54;
   font-size: 1.3rem; /* Matches nav links' font size */
 }
 
@@ -220,11 +222,11 @@ hr {
 
 /* Main Content */
 .main-content {
-  flex: 1;
-  padding: 20px;
-  margin-left: 320px;
-
-  /* Adjusted for sidebar width */
+  flex: 1 1;
+  padding: 8px 20px;
+  margin-left: 360px;
+  overflow-y: auto;
+  height: calc(100vh - 150px);  
 }
 
 .main-content h1 {
@@ -278,6 +280,7 @@ hr {
   flex-direction: column;
   overflow: hidden;
   max-width: calc(100% - 40px); /* Allow space for padding */
+  font-family: system-ui;
 }
 
 .student-info div {
@@ -437,8 +440,6 @@ hr {
   cursor: pointer;
   position: fixed;
   bottom: 0;
-  /* right: 125px; */
-  left: 0;
 }
 
 
@@ -448,23 +449,20 @@ hr {
 }
 
 .instructions {
-  z-index: 9999;
-  position: absolute;
-  display: flex; /* Centers the modal content */
-  justify-content: center;
+  z-index: 1000;
+  position: fixed;
+  top: 12%;
+  left: 0;
+  padding: 0 15px;
   align-items: center;  
-  margin: 0;
-  padding: 0;
 }
 
 /* Modal content box */
 .instructions-content{
   background-color:#0a0518; /* Dark background for the modal */
-  color: #878e99; /* Light text color */
   border-radius: 8px; /* Rounded corners */
-  padding: 20px 40px 40px 40px; /* Padding inside the modal */
-  width: 80%; /* Responsive width */
-  max-height: 80vh; /* Ensure the modal doesn't exceed 80% of viewport height */
+  padding: 10px 15px; /* Padding inside the modal */
+  height: 500px;
   border: solid #878e99 1px; /* Subtle border */
   box-shadow: 4px 4px 10px rgba(29, 29, 29, 0.544); /* Shadow for depth */
   animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
@@ -479,12 +477,14 @@ hr {
   text-align:left;
   font-size: 18px;
   line-height: 27px;
+  color: #d0dbee;
 }
 
 .instructions h3 {
   text-align: center;
-  color: #890e22;
-  font-size: 36px;
+  color: #d0dbee;
+  font-size: 24px;
+  text-decoration: underline;
   line-height: 34px;
 }
 
@@ -660,10 +660,6 @@ footer {
   .instructions {
     margin-right: 19px;
   }
-  .instructions-content {
-    padding: 0 15px 0px 15px;
-    width: 90%;
-  }
 
   .reverseSortButton {
     margin: 8px;
@@ -682,6 +678,8 @@ footer {
   }
   .instructions {
     margin-right: 15px;
+    position: fixed;
+    top: 11%;
   }
   .instructions-content {
     padding: 0 15px 0 15px;
