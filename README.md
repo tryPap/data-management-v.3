@@ -1,7 +1,12 @@
 # Data Management v.3
 
 Visit the site here: "https://trypap.github.io/data-management-v.3/"
-A simple web application to manage a list of entries with customizable fields. Built with React and includes a feature to print the list of entries.
+
+# Details
+This web application was initially prototyped using a Node.js project and later developed with React.js.
+It is designed to make data entry faster and more efficient compared to working directly in Excel.
+Users can input data quickly within the app and export it seamlessly to Excel files, 
+improving both speed and productivity.
 
 ## Features
 
