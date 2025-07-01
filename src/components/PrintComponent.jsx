@@ -20,3 +20,34 @@ const PrintComponent = React.forwardRef(({ students }, ref) => (
 ));
 
 export default PrintComponent;
+
+
+
+
+// import React, { forwardRef } from "react";
+
+// const PrintComponent = forwardRef(({ students }, ref) => {
+//   return (
+//     <div ref={ref}>
+//       <h2>Printable Student List</h2>
+//       {students.length === 0 ? (
+//         <p>No students to print.</p>
+//       ) : (
+//         <ul>
+//           {students.map((student, index) => (
+//             <li key={index}>
+//               {Object.entries(student).map(([key, value]) => (
+//                 <div key={key}>
+//                   <strong>{key}: </strong>
+//                   {value}
+//                 </div>
+//               ))}
+//             </li>
+//           ))}
+//         </ul>
+//       )}
+//     </div>
+//   );
+// });
+
+// export default PrintComponent;

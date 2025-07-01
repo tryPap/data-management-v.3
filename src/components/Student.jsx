@@ -1,74 +1,81 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import EditStudentModal from "./edit-stud-modal/studModal";
 
-const Student = ({ student, index, deleteStudent, updateStudent }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedStudent,setEditedStudent] = useState(student);
+const Student = ({
+  student,
+  index,
+  deleteStudent,
+  updateStudent,
+  renameKeyAcrossStudents,
+}) => {
+  const [showEditModal, setShowEditModal] = useState(false);
 
-  // Handle input change in edit mode
-  const handleInputChange = (field, value) => {
-    setEditedStudent((prev) => ({
-      ...prev,
-      [field]: value
-    }));
+    if (!student || typeof student !== "object") return null;
+
+    
+  const handleEdit = () => {
+    setShowEditModal(true);
   };
 
-  // Handle save action
-  const handleSave = () => {
-    updateStudent(index, editedStudent);
-    setIsEditing(false);
+  const handleCloseModal = () => {
+    setShowEditModal(false);
   };
 
-  // Handle cancel action
-  const handleCancel = () => {
-    setEditedStudent(student);  // Reset to original data
-    setIsEditing(false);
+  const handleSaveStudent = (updatedStudent, keyChanges) => {
+
+    if (updatedStudent === null) {
+    deleteStudent(index);
+    return;
+  }
+
+    if (keyChanges.length > 0) {
+      renameKeyAcrossStudents(keyChanges);
+    }
+
+    // Then update this specific student
+    updateStudent(index, updatedStudent);
+    setShowEditModal(false);
   };
+
 
   return (
-    <div className="student-item">
-      <span className='studIndex'>{index + 1}.</span>
-      <div className="student-info">
-        {Object.keys(student).map((key) => (
-          <div key={key}>
-            <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>
-            {isEditing ? (
-              <input
-                type="text"
-                value={editedStudent[key]}
-                onChange={(e) => handleInputChange(key, e.target.value)}
-              />
-            ) : (
-              <span>{student[key]}</span>
-            )}
-          </div>
-        ))}
-      </div>
-      <div className="student-actions">
-        {isEditing ? (
-          <>
-          <div className='btnEditDelete'>
-          <button className="save-button" onClick={handleSave}>Save</button>
-          <button className="cancel-button" onClick={handleCancel}>Cancel</button>
-          </div>
-            
-          </>
-        ) : (
-          <>
+    <>
+      <div className="student-item">
+        <span className="studIndex">{index + 1}.</span>
+
+        <div className="student-info">
+          {Object.entries(student).map(([key, value]) => (
+            <div key={key}>
+              <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>
+              <span>{value}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="student-actions">
           <div className="btnEditDelete">
-          <button className="edit-button" onClick={() => {
-              setEditedStudent(student);
-              setIsEditing(true)
-          }}>Edit</button>          <button className="delete-button" onClick={() => deleteStudent(index)}>Delete</button>
+            <button className="edit-button" onClick={handleEdit}>
+              Edit
+            </button>
+            <button
+              className="delete-button"
+              onClick={() => deleteStudent(index)}
+            >
+              Delete
+            </button>
           </div>
-            
-          </>
-        )}
-      </div>
+        </div>
       </div>
 
-
+      {showEditModal && (
+        <EditStudentModal
+          student={student}
+          onSave={handleSaveStudent}
+          onClose={handleCloseModal}
+        />
+      )}
+    </>
   );
 };
-
 
 export default Student;

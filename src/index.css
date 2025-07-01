@@ -1,6 +1,5 @@
 /* Body */
 body {
-  min-width: 280px;
   margin: 0;
   padding: 0;
   background-color: #0a0518;
@@ -8,6 +7,7 @@ body {
   font-weight: 400;
   overflow: hidden;
 }
+
 
 /* Container */
 .container {
@@ -23,14 +23,13 @@ body {
 .sidebar {
   padding: 20px;
   background-color: #0a0518;
-  border: solid 1px #878e99;
+  border: solid 1px #2e69c9;
   color: #ffffff;
-  position: absolute;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   overflow-y: auto;
-  margin-top: 20px;
+  margin: 18px auto;
   height: calc(100vh - 150px);  
 }
 
@@ -97,7 +96,18 @@ hr {
 }
 
 .field-container input:hover {
-  cursor: pointer;
+  cursor:grab;
+}
+
+.dot {
+  margin-right: 10px;
+  width: 4px;
+  height: 4px;
+  border: solid 1px #2e69c9;
+  border-radius: 250px;
+  background-color: #2e69c9;
+  cursor:grab;
+
 }
 
 .delete-field-button {
@@ -224,9 +234,9 @@ hr {
 .main-content {
   flex: 1 1;
   padding: 8px 20px;
-  margin-left: 360px;
   overflow-y: auto;
   height: calc(100vh - 150px);  
+  scroll-behavior: smooth;
 }
 
 .main-content h1 {
@@ -243,35 +253,6 @@ hr {
   gap: 10px;
 }
 
-.studIndex {
-  position: absolute; /* Position it absolutely within the parent */
-  top: 8px; /* Adjust as necessary */
-  left: 8px; /* Adjust as necessary */
-  font-weight: bold; /* Make it bold for emphasis */
-  opacity: 0.4;
-  font-size: 14px;
-}
-.student-item {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #efefef;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-  overflow: hidden;
-  max-width: calc(100% - 40px); /* Allow space for padding */
-}
-
-.student-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: #ecebeb;
-  cursor: pointer;
-}
 
 .student-info {
   flex: 2;
@@ -290,7 +271,7 @@ hr {
   margin-top: 0.15rem;
   margin-bottom: 0.15rem;
   padding: 0.1rem;
-  color: black;
+  color: whitesmoke;
 }
 
 .student-info div input {
@@ -429,14 +410,14 @@ hr {
 
 #instructions-button {
   background-color: #111111;
-  color: #ff002b;
+  color: #2e69c9;
   font-size: 18px;
   font-weight: 600;
   padding: 10px;
   border: solid 1px;
   border-radius: 4px;
   box-shadow: #300f0f 2px 2px 6px;
-  margin: 10px;
+  margin: 15px 5px;
   cursor: pointer;
   position: fixed;
   bottom: 0;
@@ -449,27 +430,44 @@ hr {
 }
 
 .instructions {
-  z-index: 1000;
-  position: fixed;
-  top: 12%;
-  left: 0;
-  padding: 0 15px;
-  align-items: center;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* Modal content box */
-.instructions-content{
-  background-color:#0a0518; /* Dark background for the modal */
-  border-radius: 8px; /* Rounded corners */
-  padding: 10px 15px; /* Padding inside the modal */
-  height: 500px;
-  border: solid #878e99 1px; /* Subtle border */
-  box-shadow: 4px 4px 10px rgba(29, 29, 29, 0.544); /* Shadow for depth */
-  animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
-  position: relative; /* Ensures the close button is positioned correctly */
-  text-align: center; /* Centers the text */
-  font-family:'Times New Roman', Times, serif;
+.instructions-content {
+  background-color: #0a0518;
+  border-radius: 8px;
+  padding: 20px;
+  max-height: 80vh;
+  width: 100%;
+  max-width: 800px;
+  border: solid 1px #2e69c9;
+  box-shadow: 4px 4px 6px #0e387c;
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
   overflow-y: auto;
+}
+
+
+#closeModal {
+  position: sticky;
+  bottom: 0px;
+  left: 100%;
+  transform: translateX(-100%);
+  margin-top: 20px;
+  background-color: #bd0020;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#closeModal:hover {
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 .instructions p {
@@ -488,27 +486,12 @@ hr {
   line-height: 34px;
 }
 
-#closeModal {
-  position: absolute; /* Position it relative to the modal-content */
-  bottom: 10px; /* Position from the top of the modal-content */
-  right: 10px; /* Position from the right of the modal-content */
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  cursor: pointer;
-  color: #fff;
-  background-color: #bd0020;
-  padding: 8px;
-  z-index: 1001; /* Ensure it's above all content */
-}
 
-#closeModal:hover {
-  opacity: 0.7;
-  transition: 0.3s;
-}
+
+
 .prototypes-btn {
   background-color: #111111;
-  color: #ff002b;
+  color: #2e69c9;
   font-size: 18px;
   font-weight: 600;
   padding: 10px;
@@ -518,8 +501,8 @@ hr {
   cursor: pointer;
   position: fixed;
   bottom: 0;
-  right: 0;
-  margin: 10px
+  right: 10px;
+  margin: 15px
 }
 
 .prototypes-btn:hover {
@@ -527,21 +510,71 @@ hr {
   transition: 0.3s;
 }
 
-
-/* Footer */
-footer {
+.student-item {
   display: flex;
-  flex-direction: row;
-  background-color: #0a0518;
-  padding: 5px;
-  justify-content: center;
-  color: #f7f7f7;
-  position: fixed;
-  left: 0;
-  bottom: 0px;
-  right: 0;
-  margin-top: 0.1rem;
+  background:linear-gradient(135deg, #08224b, #050911);
+  border: 1px solid #2e69c9;
+  box-shadow: 4px 4px 6px #0e387c;
+  padding: 14px;
+  margin: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.student-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  background-color: #ecebeb;
+} 
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.key-input {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 120px;
+  font-weight: bold;
+}
+
+.value-input {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.remove-field-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.remove-field-button:hover {
+  background-color: #cc0000;
+}
+
+.btnEditDelete {
+  display: flex;
+  gap: 2px;
+  margin-top: 12px;
+}
+
 
 /* Print Styles */
 @media print {
@@ -648,17 +681,14 @@ footer {
     margin-left: 0;
     padding: 20px;
   }
-  .instructions p {
-    padding-bottom: 100px;
-    /* top: 25%; */
-    
-
+  .instructions {
+    margin-right: 15px;
+    padding: 15px;
+    position: relative;
+    top: auto;
   }
   footer {
     left: 0;
-  }
-  .instructions {
-    margin-right: 19px;
   }
 
   .reverseSortButton {
@@ -667,6 +697,9 @@ footer {
 }
 
 @media (max-width: 480px) {
+  body {
+    overflow: auto; /* Allow scrolling on smaller screens */
+  }
   .sidebar {
     width: auto;
     height: auto;
@@ -676,30 +709,16 @@ footer {
   .main-content {
     padding: 15px;
   }
-  .instructions {
-    margin-right: 15px;
-    position: fixed;
-    top: 11%;
+   .instructions {
+    margin: 0px auto;
+    padding: 10px;
+    display: flex;
+    left: 0%;
+    top: 0%;
   }
   .instructions-content {
-    padding: 0 15px 0 15px;
+    padding: 10px;
   }
-  footer {
-    left: 0;
-  }
-}
-
-@media (max-width: 320px) {
-  .sidebar {
-    width: auto;
-    height: auto;
-    position: relative;
-  }
-
-  .main-content {
-    padding: 5px 5px;
-  }
-
   footer {
     left: 0;
   }
@@ -708,5 +727,22 @@ footer {
 /* Focus Styles for Accessibility */
 button:focus,
 input:focus {
-  outline: 2px solid #0056b3;
+  outline: 2px solid #2e69c9;
+} 
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .field-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .key-input {
+    min-width: auto;
+    margin-bottom: 4px;
+  }
+
+  .btnEditDelete {
+    flex-direction: column;
+  }
 }

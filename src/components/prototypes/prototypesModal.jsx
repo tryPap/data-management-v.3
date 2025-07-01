@@ -38,10 +38,12 @@ const PrototypesModal = ({ onClose, onSelectPrototype }) => {
               <div className="prototype-title">
                 {prototype.description}
               </div>
+              
               <div>
                 <ul>
+                  
                   {prototype.keys.map((key, index) => (
-                    <div key={index}>{key}</div>
+                    <div className="prototype-item" key={index}>{key} </div> 
                   ))}
                 </ul>
               </div>

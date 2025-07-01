@@ -2,30 +2,24 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between logo and menu */
-  background: #3B71CA;
+  /* background: linear-gradient(135deg, #2e69c9 , #042b6a ); */
+  background:linear-gradient(135deg, #08224b, #050911);
   padding: 12px;
-  position: sticky; /* For positioning dropdown menu */
-  z-index: 1000; /* Ensure navbar is above other elements */
-  font-family: "Stick No Bills", sans-serif;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  position: sticky;
+  z-index: 1000;
   margin: 0;
   }
-  
-  /* Title styles */
-  
-  
+
+
   .headtitle {
     font-family: "Montserrat", serif;
     font-weight: 700;
     text-decoration: none;
-    color: #d0dbee;
-    font-size: 24px; /* Matches nav links' font size */
+    color: #007bff;
+    font-size: 24px; 
     transition: color 0.3s ease;
-    margin: 0; /* Ensures perfect alignment */
-    padding: 10px
+    margin: 0;
+    padding: 10px;
   }
 
 

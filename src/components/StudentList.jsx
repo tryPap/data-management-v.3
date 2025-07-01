@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Student from "./Student";
 import ReactToPrint from "react-to-print";
 import PrintComponent from "./PrintComponent";
+import "./edit-stud-modal/modal-styles.css";
 import "../index.css";
 import ExcelJS from "exceljs";
 import PrototypesModal from "./prototypes/prototypesModal";
@@ -16,11 +17,15 @@ const StudentList = () => {
   const printComponentRef = useRef();
   const [showModal, setShowModal] = useState(false);
 
-  // Function to update a student's data
   const updateStudent = (index, updatedStudent) => {
-    const updatedStudents = [...students];
-    updatedStudents[index] = updatedStudent;
-    setStudents(updatedStudents);
+    setStudents((prevStudents) => {
+      const updatedStudents = [...prevStudents];
+      // Only update if the index is valid
+      if (index >= 0 && index < updatedStudents.length) {
+        updatedStudents[index] = updatedStudent;
+      }
+      return updatedStudents;
+    });
   };
 
   // Update field value
@@ -257,7 +262,38 @@ const StudentList = () => {
 
   const handleSelectPrototype = (prototypeKeys) => {
     addFieldsFromPrototype(prototypeKeys);
-    setShowModal(false); // Close the modal after selection
+    setShowModal(false);
+  };
+
+  const renameKeyAcrossStudents = (changes) => {
+    if (!changes.length) return;
+
+    setStudents((prevStudents) =>
+      prevStudents.map((student) => {
+        // Create a map for changes
+        const changeMap = new Map(changes.map((c) => [c.oldKey, c.newKey]));
+
+        // Create an array to preserve order
+        const orderedFields = [];
+
+        // Process each field in original order
+        Object.keys(student).forEach((oldKey) => {
+          const newKey = changeMap.get(oldKey) || oldKey;
+          orderedFields.push({
+            key: newKey,
+            value: student[oldKey],
+          });
+        });
+
+        // Convert back to object while preserving order
+        const updated = {};
+        orderedFields.forEach((field) => {
+          updated[field.key] = field.value;
+        });
+
+        return updated;
+      })
+    );
   };
 
   return (
@@ -288,6 +324,7 @@ const StudentList = () => {
                 onDragEnd={handleDragEnd}
               >
                 <div className="field-container">
+                  <span className="dot"></span>
                   <input
                     id={`field-${index}`}
                     type="text"
@@ -343,7 +380,7 @@ const StudentList = () => {
             className="export-button"
           >
             Excel
-          </button>        
+          </button>
           <ReactToPrint
             trigger={() => <button className="printExtraButton">Print</button>}
             content={() => printComponentRef.current}
@@ -362,11 +399,12 @@ const StudentList = () => {
         </div>
       </div>
       <div className="main-content">
-        <div className="instructions">
-          {showInstructions && (
+        {showInstructions && (
+          <div className="instructions">
             <div className="instructions-content">
-              <p>
+              
                 <h3>User Instructions</h3>
+                <p>
                 Enter a name for your field. Click "Add Field" to create the new
                 field. Rearrangeable fields by drag and drop. Give values you
                 want. Click "Add Data" to save the data. Sort the data, by
@@ -379,23 +417,24 @@ const StudentList = () => {
                 Close
               </span>
             </div>
-          )}
-        </div>
+          </div>
+        )}
         {/* <h1>View Your Data!</h1> */}
         <div className="student-list">
           {students.map((student, index) => (
             <Student
-              key={student.id}
-              student={student}
+              key={index} // Changed from student.key to index
               index={index}
+              student={student}
               deleteStudent={deleteStudent}
               updateStudent={updateStudent}
+              renameKeyAcrossStudents={renameKeyAcrossStudents}
             />
           ))}
         </div>
         <button id="instructions-button" onClick={toggleInstructions}>
-            Instructions
-          </button>
+          Instructions
+        </button>
         <button className="prototypes-btn" onClick={handlePrototypes}>
           Prototypes
         </button>
